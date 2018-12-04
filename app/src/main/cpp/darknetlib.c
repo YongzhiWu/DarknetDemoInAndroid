@@ -110,7 +110,7 @@ double test_detector(char *datacfg, char *cfgfile, char *weightfile, char *filen
 // use init and detect to process camera
 void
 JNICALL
-Java_com_example_chenty_demoyolo_Yolo_inityolo(JNIEnv *env, jobject obj, jstring cfgfile, jstring weightfile)
+Java_com_example_chenty_demoyolo_MainActivity_inityolo(JNIEnv *env, jobject obj, jstring cfgfile, jstring weightfile)
 {
     const char *cfgfile_str = (*env)->GetStringUTFChars(env, cfgfile, 0);
     const char *weightfile_str = (*env)->GetStringUTFChars(env, weightfile, 0);
@@ -126,7 +126,7 @@ Java_com_example_chenty_demoyolo_Yolo_inityolo(JNIEnv *env, jobject obj, jstring
 // process imgfile to /sdcard/yolo/out
 jdouble
 JNICALL
-Java_com_example_chenty_demoyolo_Yolo_testyolo(JNIEnv *env, jobject obj, jstring imgfile)
+Java_com_example_chenty_demoyolo_MainActivity_testyolo(JNIEnv *env, jobject obj, jstring imgfile)
 {
     double time;
     const char *imgfile_str = (*env)->GetStringUTFChars(env, imgfile, 0);
@@ -150,7 +150,7 @@ Java_com_example_chenty_demoyolo_Yolo_testyolo(JNIEnv *env, jobject obj, jstring
 // finish detectimg with camera
 jboolean
 JNICALL
-Java_com_example_chenty_demoyolo_Yolo_detectimg(JNIEnv *env, jobject obj, jobject dst, jobject src)
+Java_com_example_chenty_demoyolo_MainActivity_detectimg(JNIEnv *env, jobject obj, jobject dst, jobject src)
 {
     AndroidBitmapInfo srcInfo, dstInfo;
     if (ANDROID_BITMAP_RESULT_SUCCESS != AndroidBitmap_getInfo(env, src, &srcInfo)
